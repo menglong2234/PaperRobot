@@ -34,7 +34,7 @@ while True:
         print('[+] IEEE COOKIE Succ!')
     else:
         print('[-] IEEE COOKIE Fail, updating....')
-        login_url = "https://ieeexplore.ieee.org/servlet/wayf.jsp?entityId=https://idp.tsinghua.edu.cn/idp/shibboleth&url=https%3A%2F%2Fieeexplore.ieee.org%2FXplore%2Fhome.jsp"
+        login_url = "https://ieeexplore.ieee.org/servlet/wayf.jsp?entityId=https://jaccount.sjtu.edu.cn/idp/shibboleth&url=https%3A%2F%2Fieeexplore.ieee.org%2FXplore%2Fhome.jsp"
         cookies['ieee'] = get_cookies_with_institution_login(login_url)
         update = True
         print('[+] IEEE COOKIE Updating succ....')
@@ -44,20 +44,20 @@ while True:
         print('[+] ACM COOKIE Succ!')
     else:
         print('[-] ACM COOKIE Fail, updating....')
-        login_url = "https://dl.acm.org/action/ssostart?idp=https%3A%2F%2Fidp.tsinghua.edu.cn%2Fopenathens&redirectUri=https%3A%2F%2Fdl.acm.org%2F"
+        login_url = "https://dl.acm.org/action/ssostart?idp=https%3A%2F%2Fjaccount.sjtu.edu.cn%2Fidp%2Fshibboleth&redirectUri=%2F"
         cookies['acm'] = get_cookies_with_institution_login(login_url)
         update = True
         print('[+] ACM COOKIE Updating succ....')
 
-    url = "https://link.springer.com/chapter/10.1007/3-540-45474-8_11"
-    if 'springer' in cookies and check_login(url, cookies['springer'], succ_flag='Download'):
-        print("[+] Springer COOKIE Succ!")
-    else:
-        print('[-] Springer COOKIE Fail, updating....')
-        login_url = "https://sp.springer.com/saml/login?idp=https://idp.tsinghua.edu.cn/openathens&targetUrl=https://link.springer.com/chapter/10.1007/978-3-030-00470-5_12"
-        cookies['springer'] = get_cookies_with_institution_login(login_url)
-        update = True
-        print('[+] Springer COOKIE Updating succ....')
+    # url = "https://link.springer.com/chapter/10.1007/3-540-45474-8_11"
+    # if 'springer' in cookies and check_login(url, cookies['springer'], succ_flag='Download'):
+    #     print("[+] Springer COOKIE Succ!")
+    # else:
+    #     print('[-] Springer COOKIE Fail, updating....')
+    #     login_url = "https://sp.springer.com/saml/login?idp=https://idp.tsinghua.edu.cn/openathens&targetUrl=https://link.springer.com/chapter/10.1007/978-3-030-00470-5_12"
+    #     cookies['springer'] = get_cookies_with_institution_login(login_url)
+    #     update = True
+    #     print('[+] Springer COOKIE Updating succ....')
     if update:
         data = json.dumps(cookies).encode()
         save_file(COOKIE_PATH, data)

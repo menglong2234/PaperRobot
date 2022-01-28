@@ -17,18 +17,18 @@ init_log(LOG_PATH)
 
 def banner():
     my_banner = ("""%s
-              
-          o__ __o                                                         
-         <|     v\                                                        
-         / \     <\                                                       
-         \o/     o/   o__ __o/  \o_ __o      o__  __o   \o__ __o    __o__ 
-          |__  _<|/  /v     |    |    v\    /v      |>   |     |>  />  \  
-          |         />     / \  / \    <\  />      //   / \   < >  \o     
-         <o>        \      \o/  \o/     /  \o    o/     \o/         v\    
-          |          o      |    |     o    v\  /v __o   |           <\   
-         / \         <\__  / \  / \ __/>     <\/> __/>  / \     _\o__</   
-                                \o/                                       
-                                 |                                        
+
+          o__ __o
+         <|     v\
+         / \     <\
+         \o/     o/   o__ __o/  \o_ __o      o__  __o   \o__ __o    __o__
+          |__  _<|/  /v     |    |    v\    /v      |>   |     |>  />  \
+          |         />     / \  / \    <\  />      //   / \   < >  \o
+         <o>        \      \o/  \o/     /  \o    o/     \o/         v\
+          |          o      |    |     o    v\  /v __o   |           <\
+         / \         <\__  / \  / \ __/>     <\/> __/>  / \     _\o__</
+                                \o/
+                                 |
                                 / \                                       \
                                                                         %s%s
                                                                   moxiaoxi
@@ -164,12 +164,12 @@ def get_cookies_with_institution_login(login_url, username=USERNAME, password=PA
     driver.implicitly_wait(10)
     # driver.get(base_url)
     driver.get(login_url)
-    u_button = driver.find_element_by_xpath('//*[@id="i_user"]')
-    u_button.send_keys(username)
-    pwd_button = driver.find_element_by_xpath('//*[@id="i_pass"]')
-    pwd_button.send_keys(password)
-    l_button = driver.find_element_by_xpath('//*[@id="theform"]/div[4]/a')
-    l_button.click()
+    # u_button = driver.find_element_by_xpath('//*[@id="i_user"]')
+    # u_button.send_keys(username)
+    # pwd_button = driver.find_element_by_xpath('//*[@id="i_pass"]')
+    # pwd_button.send_keys(password)
+    # l_button = driver.find_element_by_xpath('//*[@id="theform"]/div[4]/a')
+    # l_button.click()
     while True:
         if succ_flag in driver.page_source:
             logging.debug('[+] login Succ...')
